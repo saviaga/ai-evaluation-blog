@@ -68,57 +68,6 @@
 
     <p>Afolabi et al. (2026) studied exactly this scenario and found a "dangerous gap between coherent medical explanations and actual reasoning processes." The explanations looked right. They just didn't reflect reality.</p>
 
-    <h2>What I'm Building</h2>
-
-    <p>This problem is too important to just write papers about. We need <strong>tools</strong>.</p>
-
-    <p>I'm building <a href="https://github.com/saviaga/cot-faithfulness-eval">cot-faithfulness-eval</a> — an open-source framework for measuring chain-of-thought faithfulness through systematic perturbation testing.</p>
-
-    <p>The core idea is simple: if the reasoning actually matters, then <strong>breaking it should break the answer</strong>.</p>
-
-    <pre><code>from cot_faithfulness import FaithfulnessEvaluator
-
-evaluator = FaithfulnessEvaluator(
-    model="claude-3-sonnet",
-    perturbations=["corrupt", "delete", "reverse"],
-    domains=["math", "logic", "code"]
-)
-
-results = evaluator.run(num_samples=100)
-print(f"Faithfulness score: {results.score:.2f}")</code></pre>
-
-    <p>We test five types of perturbations:</p>
-
-    <table>
-      <thead>
-        <tr><th>Perturbation</th><th>What We Do</th><th>What It Tests</th></tr>
-      </thead>
-      <tbody>
-        <tr><td><strong>Corrupt</strong></td><td>Replace a step with wrong logic</td><td>Does the model follow its own reasoning?</td></tr>
-        <tr><td><strong>Delete</strong></td><td>Remove a step entirely</td><td>Is each step necessary?</td></tr>
-        <tr><td><strong>Reverse</strong></td><td>Contradict a step</td><td>Does the model notice contradictions?</td></tr>
-        <tr><td><strong>Truncate</strong></td><td>Cut reasoning short</td><td>Does the model need all steps?</td></tr>
-        <tr><td><strong>Inject</strong></td><td>Add a false premise</td><td>Does the model validate its chain?</td></tr>
-      </tbody>
-    </table>
-
-    <p>If corrupting step 3 doesn't change the answer, that step is decorative — the model isn't actually using it. The <strong>faithfulness score</strong> is the proportion of perturbations that change the output: higher means more faithful.</p>
-
-    <h2>What Comes Next</h2>
-
-    <p>Over the next few months, I'll be running these evaluations across frontier models (GPT-4, Claude, Llama 3) and multiple reasoning domains. I'll publish the benchmark results and the tooling.</p>
-
-    <p>Some questions I want to answer:</p>
-
-    <ul>
-      <li>Which models are most faithful? Does scale help or hurt?</li>
-      <li>Which reasoning domains are most prone to unfaithful CoT?</li>
-      <li>Can we predict when a model will be unfaithful before it happens?</li>
-      <li>What perturbation types reveal the most about actual reasoning?</li>
-    </ul>
-
-    <p>If you're working on AI evaluation or deploying LLMs in contexts where reasoning transparency matters, I'd love to hear from you. The repo is open source, contributions welcome.</p>
-
     <p><strong>The uncomfortable truth is that we've been treating chain-of-thought as an evaluation feature without verifying that it actually works as one.</strong> It's time to measure it.</p>
 
     <hr>
