@@ -1,6 +1,6 @@
 #!/bin/bash
 # Generate an AI Safety blog post and update the index
-BLOG_DIR="/home/node/.openclaw/workspace/ai-safety-blog"
+BLOG_DIR="/home/node/.openclaw/workspace/ai-evaluation-blog"
 POSTS_DIR="$BLOG_DIR/posts"
 DATE=$(date -u +"%Y-%m-%d")
 TIME=$(date -u +"%H%M%S")
@@ -57,7 +57,7 @@ cat > "$BLOG_DIR/index.html" <<'HEADER'
   </header>
   <div class="layout">
     <main>
-      <p>Welcome to my AI safety evaluation blog. I build the evaluation infrastructure that keeps advanced AI aligned — from chain-of-thought faithfulness to multi-agent governance, from research prototypes to production systems.</p>
+      <p>Welcome to my AI evaluation blog. I build the evaluation infrastructure that keeps advanced AI aligned — from chain-of-thought faithfulness to multi-agent governance, from research prototypes to production systems.</p>
       
       <h2>Recent Posts</h2>
 HEADER
@@ -81,7 +81,7 @@ ENTRY
   done
 else
   cat >> "$BLOG_DIR/index.html" <<NOPOST
-      <p><em>No posts yet. Check back soon for AI safety evaluation insights!</em></p>
+      <p><em>No posts yet. Check back soon for AI evaluation insights!</em></p>
 NOPOST
 fi
 

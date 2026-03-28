@@ -1,10 +1,10 @@
 #!/bin/bash
-# Publish AI Safety Blog to GitHub Pages
+# Publish AI Evaluation Blog to GitHub Pages
 
-BLOG_DIR="/home/node/.openclaw/workspace/ai-safety-blog"
+BLOG_DIR="/home/node/.openclaw/workspace/ai-evaluation-blog"
 cd "$BLOG_DIR"
 
-echo "Publishing AI Safety Blog..."
+echo "Publishing AI Evaluation Blog..."
 
 # Add all changes
 git add .
@@ -17,4 +17,4 @@ git commit -m "Blog update: $TIMESTAMP"
 git push origin main
 
 echo "✅ Blog published to GitHub Pages"
-echo "🌐 View at: https://saviaga.github.io/ai-safety-blog/"
+echo "🌐 View at: https://saviaga.github.io/ai-evaluation-blog/"
